@@ -1,0 +1,94 @@
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Orelega+One&display=swap" rel="stylesheet">
+<style>
+	@keyframes spinout{
+		10%{ transform: scale(1.1) rotate(10deg) }
+		100%{ transform: scale(0) rotate(-720deg) }
+	}
+	
+	@keyframes popin{
+		0%{ transform: rotate(720deg) scale(5) }
+		100%{ transform: none }
+	}
+	
+	*{
+		overflow: hidden;
+	}
+	
+	body{
+		background: #111;
+	}
+	#container{
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+		transform-origin: 50vw 50vh;
+		background: #111;
+		color: #ec5bfc;
+		/* 	animation: spinout 1s forwards; */
+	}
+	#title{
+		font-size: 25vmin;
+		text-align: center;
+	}
+	#dance{
+		width: 80vmin;
+		height: 80vmin;
+		background: url("https://static.wikia.nocookie.net/98968ed2-9d23-4ade-8eba-7f1a0a38faa3");
+		background-size: cover;
+		background-position: center;
+		mix-blend-mode: lighten;
+		position: absolute;
+		bottom: 10vmin;
+		left: calc(50vw - 40vmin);
+	}
+	#button{
+		position: absolute;
+		bottom: 20vmin;
+		left: calc(50vw - 30vmin - 3vmin);
+		width: 60vmin;
+		border: 1vmin solid #ec5bfc;
+		padding: 2vmin;
+		font-size: 10vmin;
+		text-align: center;
+		background: #111;
+		cursor: pointer;
+		box-shadow: 0 0 3vmin -1vmin #ec5bfc;
+	}
+	#body{
+		font-size: 20vmin;
+		padding: 3vmin;
+	}
+	.small{
+		font-size: 10vmin;
+	}
+	#yoshi{
+		background: url("https://static.wikia.nocookie.net/mario/images/7/7d/Baby_Yoshi.png/revision/latest/top-crop/width/360/height/360?cb=20100927202459");
+		background-size: cover;
+		background-position: center;
+		width: 80vmin;
+		height: 80vmin;
+		position: absolute;
+		bottom: 0;
+		left: calc(50vw - 40vmin);
+		z-index: -1;
+	}
+</style>
+<script>
+	function next(){
+		var c = document.getElementById("container");
+		c.style.animation = "spinout 1s forwards";
+		setTimeout(function(){
+			c.innerHTML = "<div id='yoshi'></div><div id='body'>april 30th at 5:30 i think<br/><br/><span class='small'>or maybe may 2nd</span></div>";
+			c.style.animation = "popin 1s forwards";
+			c.style.color = "#83fc5b";
+		}, 1000);
+	}
+</script>
+<div id="container">
+	<div id="title">my birthday party</div>
+	<div id="dance"></div>
+	<div id="button" onclick="next()">please come</div>
+</div>
